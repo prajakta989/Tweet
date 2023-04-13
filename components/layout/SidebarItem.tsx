@@ -1,4 +1,6 @@
-import { IconType } from 'react-icons'
+import { useRouter } from 'next/router'
+import { IconType } from 'react-icons';
+import {useCallback} from 'react'
 
 interface SidebarItemProps {
     label: string,
@@ -9,6 +11,8 @@ interface SidebarItemProps {
 const SidebarItem: React.FC<SidebarItemProps> = ({
     label, href, icon: Icon, onClick
 }) => {
+    const router = useRouter()
+    
     return (
         <div className='flex flex-row items-center'>
             <div className='relative rounded-full h-14 w-14 items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 lg:hidden'>
