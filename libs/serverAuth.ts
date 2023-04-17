@@ -2,7 +2,7 @@ import { NextApiRequest } from "next";
 import {getSession} from 'next-auth/react';
 import prisma from '@/libs/prismadb';
 
-const serverAuth =async (req:NextApiRequest) => {
+const serverAuth =async (req:NextApiRequest) => { //only accepts a request
     const session = await getSession({req})
 
     if(!session?.user?.email){
@@ -11,7 +11,7 @@ const serverAuth =async (req:NextApiRequest) => {
 
     const currentUser = await prisma.user.findUnique({
         where:{
-            email: session?.user?.email
+            email: session.user.email
         }
     })
     if(!currentUser){
