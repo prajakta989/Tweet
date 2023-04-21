@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { ClipLoader } from "react-spinners";
 import UserHero from "@/components/users/UserHero";
 import UserBio from "@/components/users/UserBio";
+import PostFeed from "@/components/posts/PostFeed";
 
 const userView = () => {
     const router = useRouter()
@@ -23,6 +24,7 @@ const userView = () => {
        <Header showBackArrow label={fetchedUser?.name}/>
        <UserHero userId={userId as string}/>
        <UserBio userId={userId as string}/>
+       <PostFeed userId={userId as string}/>
     </>
   )
 }
